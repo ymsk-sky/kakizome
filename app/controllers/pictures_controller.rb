@@ -1,8 +1,11 @@
 class PicturesController < ApplicationController
-  def theme
+
+  def show
+    @picture = Picture.find(params[:id])
   end
 
-  def writing
+  def new
+    @picture = Picture.new
   end
 
   def product

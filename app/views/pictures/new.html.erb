@@ -7,7 +7,6 @@
        onclick="name_checked(this.checked);" value="<%= @user_name %>">
 <label for="name_check">名前を入れる</label>
 <input type="button" value="やり直す" onclick="clear_canvas();">
-<input type="button" id="save_button" value="完成" onclick="save_picture();">
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -15,9 +14,9 @@
       <%= render 'shared/error_message' %>
       <%= f.hidden_field :theme, value: @user_theme, class: 'form-control' %>
       <%= f.hidden_field :name, value: @user_name, class: 'form-control' %>
-      <%= f.hidden_field :canvas_url, value: "隠し要素" %>
+      <%= f.hidden_field :canvas_url, value: "" %>
 
-      <%= f.submit "完成", class: "btn btn-primary" %>
+      <input type="button" value="完成" onClick="_submit()" class="btn btn-primary" >
     <% end %>
   </div>
 </div>

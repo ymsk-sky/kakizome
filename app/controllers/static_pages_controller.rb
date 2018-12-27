@@ -4,4 +4,9 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+  def theme
+    @user_theme = params[:user_theme]
+    @user_name = params[:user_name]
+  end
 end

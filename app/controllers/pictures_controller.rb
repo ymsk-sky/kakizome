@@ -6,12 +6,15 @@ class PicturesController < ApplicationController
 
   def new
     @picture = Picture.new
+    @user_theme = params[:user_theme]
+    @user_name = params[:user_name]
   end
 
   def create
     @picture = Picture.new(picture_params)
     if @picture.save
-      redirect_to @picture
+      # redirect_to @picture
+      redirect_to product_path
     else
       render 'new'
     end

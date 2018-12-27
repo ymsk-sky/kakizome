@@ -1,18 +1,23 @@
-<h1>お題決め</h1>
+<!-- データベース確認して完成していたらボタンを非表示にする -->
+<h1>お題：<%= @user_theme %></h1>
+<div class="canvasarea">
+  <canvas id="mycanvas" width="300" height="300">HTML5非対応</canvas>
+</div>
+<input type="checkbox" id="name_check"
+       onclick="name_checked(this.checked);" value="<%= @user_name %>">
+<label for="name_check">名前を入れる</label>
+<input type="button" value="やり直す" onclick="clear_canvas();">
+<input type="button" id="save_button" value="完成" onclick="save_picture();">
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@picture, url: theme_path) do |f| %>
+    <%= form_for(@picture, url: product_path) do |f| %>
       <%= render 'shared/error_message' %>
-      <%= f.label :theme, 'お題' %>
-      <%= f.text_field :theme, class: 'form-control' %>
-
-      <%= f.label :name, 'お名前' %>
-      <%= f.text_field :name, class: 'form-control' %>
-
+      <%= f.hidden_field :theme, value: @user_theme, class: 'form-control' %>
+      <%= f.hidden_field :name, value: @user_name, class: 'form-control' %>
       <%= f.hidden_field :canvas_url, value: "隠し要素" %>
 
-      <%= f.submit "筆をとる", class: "btn btn-primary" %>
+      <%= f.submit "完成", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

@@ -21,6 +21,7 @@ class PicturesController < ApplicationController
   end
 
   def product
+    # @product = params[:canvas_url]
   end
 
   def gallery

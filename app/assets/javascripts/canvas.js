@@ -113,7 +113,7 @@ function _submit() {
     // picture_canvas_urlのvalueをcanvasの画像データに変更する
     var image_data = document.getElementById('mycanvas').toDataURL("image/png");
     document.getElementById("picture_canvas_url").value = image_data;
-    
+
     var target = document.getElementById("new_picture");
     target.submit();
 }

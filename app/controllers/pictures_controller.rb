@@ -21,7 +21,8 @@ class PicturesController < ApplicationController
   end
 
   def product
-    # @product = params[:canvas_url]
+    # いい感じに呼び出す
+    @product = Picture.last.canvas_url
   end
 
   def gallery

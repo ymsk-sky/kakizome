@@ -19,7 +19,7 @@ class PicturesController < ApplicationController
     @picture = Picture.new(picture_params)
     if @picture.save
       # redirect_to @picture
-      redirect_to product_path
+      redirect_to product_path(picture: picture_params)
     else
       render 'new'
     end
@@ -31,7 +31,10 @@ class PicturesController < ApplicationController
 
   def product
     # いい感じに呼び出す
-    @product = Picture.last.canvas_url
+    # @product = Picture.last.canvas_url
+    @user_theme = picture_params[:theme]
+    @user_name = picture_params[:name]
+    @product = picture_params[:canvas_url]
   end
 
   private

@@ -1,2 +1,11 @@
-<h1>Pictures#gallery</h1>
-<p>Find me in app/views/pictures/gallery.html.erb</p>
+<h1>みんなの作品</h1>
+
+<ul class="products">
+  <% @products.each do |product| %>
+    <li>
+      <img src=<%= product.canvas_url %>>
+      <%= product.name %>
+      <%= product.theme %>
+    </li>
+  <% end %>
+</ul>

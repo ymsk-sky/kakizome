@@ -26,6 +26,7 @@ class PicturesController < ApplicationController
   end
 
   def gallery
+    @products = Picture.all
   end
 
   private

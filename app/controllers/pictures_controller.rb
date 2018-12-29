@@ -26,7 +26,7 @@ class PicturesController < ApplicationController
   end
 
   def index
-    @pictures = Picture.paginate(page: params[:page])
+    @pictures = Picture.paginate(page: params[:page], per_page: 10)
   end
 
   def product

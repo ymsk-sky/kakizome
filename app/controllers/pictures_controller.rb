@@ -20,13 +20,13 @@ class PicturesController < ApplicationController
     end
   end
 
+  def index
+    @pictures = Picture.paginate(page: params[:page])
+  end
+
   def product
     # いい感じに呼び出す
     @product = Picture.last.canvas_url
-  end
-
-  def gallery
-    @products = Picture.all
   end
 
   private

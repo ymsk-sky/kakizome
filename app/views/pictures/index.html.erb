@@ -1,0 +1,15 @@
+<h1>みんなの作品</h1>
+
+<%= will_paginate %>
+
+<ul class="products">
+  <% @pictures.each do |picture| %>
+    <li>
+      <img src=<%= picture.canvas_url %>>
+      <%= picture.name %>
+      <%= picture.theme %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>

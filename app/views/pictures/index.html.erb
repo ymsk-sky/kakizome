@@ -4,11 +4,7 @@
 
 <ul class="products">
   <% @pictures.each do |picture| %>
-    <li>
-      <img src=<%= picture.canvas_url %>>
-      <%= picture.name %>
-      <%= picture.theme %>
-    </li>
+    <%= render picture %>
   <% end %>
 </ul>
 

@@ -1,7 +1,12 @@
 class PicturesController < ApplicationController
 
   def show
-    @picture = Picture.find(params[:id])
+    @picture = Picture.find_by_id(params[:id])
+    if @picture.nil?
+      redirect_to root_path
+    else
+      redirect_to gallery_path
+    end
   end
 
   def new

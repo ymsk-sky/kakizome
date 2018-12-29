@@ -3,9 +3,18 @@ var paper_color = "#FAFAFA";
 (window.onload = function() {
   var canvas = document.getElementById('mycanvas');
 
+  var ua = navigator.userAgent;
+  var iphone = ua.indexOf('iPhone') > 0;
+  var android = ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0;
   // TODO: 画面幅に合わせる
-  canvas.width = screen.width / 8;
-  canvas.height = screen.height / 4;
+  var w = 242;
+  var h = 333;
+  if(iphone || android) {
+    // 高さを調整
+    canvas.height = window.innerHeight - 100;
+    canvas.width = w/h * canvas.height;
+    alert("smart phone");
+  }
 
   var ctx = canvas.getContext('2d');
   ctx.beginPath();

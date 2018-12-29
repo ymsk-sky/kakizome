@@ -1,12 +1,16 @@
 <!-- データベース確認して完成していたらボタンを非表示にする -->
 <h1>お題：<%= @user_theme %></h1>
 <div class="canvasarea">
-  <canvas id="mycanvas" width="300" height="300">HTML5非対応</canvas>
+  <canvas id="mycanvas" width="242px" height="333px">HTML5非対応</canvas>
 </div>
-<input type="checkbox" id="name_check"
-       onclick="name_checked(this.checked);" value="<%= @user_name %>">
-<label for="name_check">名前を入れる</label>
-<input type="button" value="やり直す" onclick="clear_canvas();">
+<div class="input_name">
+  <label for="name_check">
+    <input type="checkbox" id="name_check"
+           onclick="name_checked(this.checked);" value="<%= @user_name %>">
+    名前を入れる
+  </label>
+</div>
+<input type="button" value="やり直す" onclick="clear_canvas();" id="reset_btn">
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">

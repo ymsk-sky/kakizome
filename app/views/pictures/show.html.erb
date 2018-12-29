@@ -2,10 +2,10 @@
   お題：<%= @picture.theme %>
 </p>
 <div class="canvasarea">
-  <canvas id="mycanvas" width="300" height="300">HTML5非対応</canvas>
+  <canvas id="mycanvas">HTML5非対応</canvas>
 </div>
 <input type="checkbox" id="name_check"
        onclick="name_checked(this.checked);" value="<%= @picture.name %>">
 <label for="name_check">名前を入れる</label>
-<input type="button" value="やり直す" onclick="clear_canvas();">
+<input type="button" value="やり直す" onclick="clear_canvas();" class="btn btn-lg btn-primary">
 <input type="button" id="save_button" value="完成" onclick="save_picture();">

@@ -23,6 +23,8 @@
       <%= render 'shared/error_message' %>
       <%= f.hidden_field :theme, value: @user_theme, class: 'form-control' %>
       <%= f.hidden_field :name, value: @user_name, class: 'form-control' %>
+      <%= f.hidden_field :random_token, value: @rdm_token,
+                                                    class: 'form-control'%>
       <%= f.hidden_field :canvas_url, value: "" %>
 
       <input type="button" value="完成" onClick="_submit()"

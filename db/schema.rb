@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181226065144) do
+ActiveRecord::Schema.define(version: 20181230123408) do
 
   create_table "pictures", force: :cascade do |t|
     t.string "theme"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20181226065144) do
     t.text "canvas_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "random_token"
   end
 
 end

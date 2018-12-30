@@ -13,12 +13,13 @@ class PicturesController < ApplicationController
     @picture = Picture.new
     @user_theme = params[:user_theme]
     @user_name = params[:user_name]
+    @rdm_token = SecureRandom.urlsafe_base64
   end
 
   def create
     @picture = Picture.new(picture_params)
     if @picture.save
-      redirect_to product_path(picture: picture_params)
+      redirect_to product_path(picture: rdm_token)
     else
       render 'new'
     end
@@ -29,14 +30,17 @@ class PicturesController < ApplicationController
   end
 
   def product
-    @user_theme = picture_params[:theme]
-    @user_name = picture_params[:name]
-    @product = picture_params[:canvas_url]
+    @product = Picture.find_by(random_token: rdm_token[:random_token])
   end
 
   private
 
     def picture_params
-      params.require(:picture).permit(:theme, :name, :canvas_url)
+      params.require(:picture).permit(:theme, :name, :canvas_url,
+                                                          :random_token)
+    end
+
+    def rdm_token
+      params.require(:picture).permit(:random_token)
     end
 end

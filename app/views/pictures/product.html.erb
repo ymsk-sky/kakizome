@@ -1,7 +1,7 @@
 <h1>あなたの作品</h1>
-<%= @user_name %>さん
-お題：<%= @user_theme %>
+<%= @product.name %>さん
+お題：<%= @product.theme %>
 
-<img src=<%= @product %> alt="img_alt">
+<img src=<%= @product.canvas_url %> alt="作品">
 
 <%= link_to "みんなの作品", gallery_path, class: "btn btn-lg btn-primary" %>

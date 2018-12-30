@@ -169,16 +169,14 @@ function clear_canvas() {
 }
 
 function _submit() {
-    // picture_canvas_urlのvalueをcanvasの画像データに変更する
-    var canvas = document.getElementById('mycanvas');
-    var img_data = canvas.toDataURL("image/png");
+  var img_data = document.getElementById('mycanvas').toDataURL("image/png");
 
-    var blob = Base64toBlob(img_data);
+  // var blob = Base64toBlob(img_data);
 
-    document.getElementById("picture_canvas_url").value = img_data;
+  document.getElementById("picture_canvas_url").value = img_data;
 
-    var target = document.getElementById("new_picture");
-    target.submit();
+  var target = document.getElementById("new_picture");
+  target.submit();
 }
 
 function Base64toBlob(base64) {

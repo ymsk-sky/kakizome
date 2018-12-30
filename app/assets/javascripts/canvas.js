@@ -146,12 +146,10 @@ function name_checked(ischecked) {
 
   if(ischecked) {
     ctx.fillStyle = "#000";
-    // ctx.fillText(name, 15, 65);
     fillTategaki(ctx, name, n_x, n_y);
   }
   else {
     ctx.fillStyle = paper_color;
-    // ctx.fillText(name, 15, 65);
     fillTategaki(ctx, name, n_x, n_y);
     ctx.strokeStyle = paper_color;
     strokeTategaki(ctx, name, n_x, n_y);
@@ -166,7 +164,6 @@ function clear_canvas() {
   var ctx = canvas.getContext('2d');
   ctx.fillStyle = paper_color;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  // ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = BLACK;
   document.getElementById("name_check").checked = false;
 }

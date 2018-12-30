@@ -1,7 +1,17 @@
-<h1>あなたの作品</h1>
-<%= @product.name %>さん
-お題：<%= @product.theme %>
+<% provide(:ogp, @product.canvas_url) %>
+<h1><%= @product.name %>さんの作品</h1>
 
-<img src=<%= @product.canvas_url %> alt="作品">
+<div class="canvasarea">
+  <img src=<%= @product.canvas_url %> alt="作品">
 
-<%= link_to "みんなの作品", gallery_path, class: "btn btn-lg btn-primary" %>
+  <div class="twitter">
+    <a href="//twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+        data-text="書き初めました！ #kakizome"
+        data-lang="ja">Tweet</a>
+  </div>
+
+  <%= link_to "みんなの作品", gallery_path, class: "btn btn-lg btn-primary" %>
+</div>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+</script>

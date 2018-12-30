@@ -27,7 +27,6 @@ var BLACK = "#000";
   canvas.addEventListener("mousemove", function(e) {
     var rect = e.target.getBoundingClientRect();
     ctx.lineWidth = document.getElementById("lineWidth").value;
-    ctx.globalAlpha = document.getElementById("alpha").value / 100;
     mouseX = e.clientX - rect.left;
     mouseY = e.clientY - rect.top;
     if(draw === true) {
@@ -55,11 +54,6 @@ var BLACK = "#000";
   lineWidth.addEventListener("mousemove", function() {
     var lineNum = document.getElementById("lineWidth").value;
     document.getElementById("lineNum").innerHTML = lineNum;
-  });
-
-  alpha.addEventListener("mousemove",function() {
-    var alphaNum = document.getElementById("alpha").value;
-    document.getElementById("alphaNum").innerHTML = alphaNum;
   });
 
   $('li').click(function(){
@@ -90,7 +84,6 @@ var BLACK = "#000";
     e.preventDefault();
     var rect = e.target.getBoundingClientRect();
     ctx.lineWidth = document.getElementById("lineWidth").value;
-    ctx.globalAlpha = document.getElementById("alpha").value / 100;
     undoImage = ctx.getImageData(0, 0, canvas.width, canvas.height);
     for(var i=0; i<finger.length; i++) {
       finger[i].x1 = e.touches[i].clientX - rect.left;
@@ -117,11 +110,6 @@ var BLACK = "#000";
   lineWidth.addEventListener("touchmove", function() {
     var lineNum = document.getElementById("lineWidth").value;
     document.getElementById("lineNum").innerHTML = lineNum;
-  });
-
-  alpha.addEventListener("touchmove", function() {
-    var alphaNum = document.getElementById("alpha").value;
-    document.getElementById("alphaNum").innerHTML = alphaNum;
   });
 })();
 
@@ -159,8 +147,8 @@ function clear_canvas() {
 
 function _submit() {
     // picture_canvas_urlのvalueをcanvasの画像データに変更する
-    var image_data = document.getElementById('mycanvas').toDataURL("image/png");
-    document.getElementById("picture_canvas_url").value = image_data;
+    var img_data = document.getElementById('mycanvas').toDataURL("image/png");
+    document.getElementById("picture_canvas_url").value = img_data;
 
     var target = document.getElementById("new_picture");
     target.submit();

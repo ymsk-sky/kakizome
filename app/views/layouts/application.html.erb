@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <!-- <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"> -->
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta property="og:title" content="<%= yield(:theme) %>" />
+    <meta property="og:title" content="お題：<%= yield(:theme) %>" />
     <meta property="og:description" content="書き初めました。" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://kakizome.herokuapp.com" />
-    <meta property="og:image" content="https://4.bp.blogspot.com/-WiDc7kY5Sms/WzC9s8Gc2wI/AAAAAAABM7A/wtbDsVZp32o-h5aTs-aYl7fBFdnnY3d5ACLcBGAs/s800/kousaku_girl.png" />
+    <meta property="og:image" content="Base64.decode64(<%= yield(:ogp) %>)" />
     <meta name="twitter:card" content="summary_large_image">
 
     <title>Kakizome</title>

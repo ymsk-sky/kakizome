@@ -140,6 +140,16 @@ input {
   height: 160px;
 }
 
+/* canvas */
+
+.canvasarea {
+  text-align: center;
+}
+
+#mycanvas {
+  border: solid 20px #00FF00;
+}
+
 /* miscellaneous */
 
 .debug_dump {

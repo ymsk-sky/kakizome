@@ -118,19 +118,20 @@ function name_checked(ischecked) {
   var canvas = document.getElementById('mycanvas');
   var ctx = canvas.getContext('2d');
 
+  ctx.lineWidth = 2;
+  ctx.font = "50px Century"
+
   if(ischecked) {
-    ctx.lineWidth = 2;
     ctx.fillStyle = "#000";
-    ctx.font = "50px Century"
     ctx.fillText(name, 15, 65);
   }
   else {
-    ctx.lineWidth = 2;
     ctx.fillStyle = paper_color;
-    ctx.font = "50px Century";
     ctx.fillText(name, 15, 65);
     ctx.strokeStyle = paper_color;
     ctx.strokeText(name, 15, 65);
+    ctx.fillStyle = BLACK;
+    ctx.strokeStyle = BLACK;
   }
 }
 
@@ -141,7 +142,7 @@ function clear_canvas() {
   ctx.fillStyle = paper_color;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   // ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#000";
+  ctx.fillStyle = BLACK;
   document.getElementById("name_check").checked = false;
 }
 

@@ -170,9 +170,25 @@ function clear_canvas() {
 
 function _submit() {
     // picture_canvas_urlのvalueをcanvasの画像データに変更する
-    var img_data = document.getElementById('mycanvas').toDataURL("image/png");
+    var canvas = document.getElementById('mycanvas');
+    var img_data = canvas.toDataURL("image/png");
+
+    var blob = Base64toBlob(img_data);
+
     document.getElementById("picture_canvas_url").value = img_data;
 
     var target = document.getElementById("new_picture");
     target.submit();
+}
+
+function Base64toBlob(base64) {
+	var tmp = base64.split(',');
+	var data = atob(tmp[1]);
+	var mime = tmp[0].split(':')[1].split(';')[0];
+	var buf = new Uint8Array(data.length);
+	for (var i = 0; i < data.length; i++) {
+		buf[i] = data.charCodeAt(i);
+	}
+	var blob = new Blob([buf], { type: mime });
+	return blob;
 }

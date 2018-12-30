@@ -1,4 +1,4 @@
-var paper_color = "#FAFAFA";
+var paper_color = "#FFFFF4";
 var BLACK = "#000";
 
 (window.onload = function() {
@@ -64,12 +64,6 @@ var BLACK = "#000";
 
   $('li').click(function(){
     ctx.strokeStyle = $(this).css('background-color');
-  });
-
-  $('#clear').click(function(e) {
-    if(!confirm('本当に消去しますか？')) return;
-    e.preventDefault();
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
   });
 
   // function save() {
@@ -153,6 +147,7 @@ function name_checked(ischecked) {
 }
 
 function clear_canvas() {
+  if(!confirm("やり直しますか？")) return;
   var canvas = document.getElementById('mycanvas');
   var ctx = canvas.getContext('2d');
   ctx.fillStyle = paper_color;

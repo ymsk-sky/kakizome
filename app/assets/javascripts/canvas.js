@@ -114,22 +114,47 @@ var BLACK = "#000";
 })();
 
 function name_checked(ischecked) {
+  var fillTategaki = function(context, text, x, y) {
+    var textList = text.split('\n');
+    var lineHeight = context.measureText("あ").width;
+    textList.forEach(function(elm, i) {
+      Array.prototype.forEach.call(elm, function(ch, j) {
+        context.fillText(ch, x - lineHeight * i, y + lineHeight * j);
+      });
+    });
+  };
+
+  var strokeTategaki = function(context, text, x, y) {
+    var textList = text.split('\n');
+    var lineHeight = context.measureText("あ").width;
+    textList.forEach(function(elm, i) {
+      Array.prototype.forEach.call(elm, function(ch, j) {
+        context.strokeText(ch, x - lineHeight * i, y + lineHeight * j);
+      });
+    });
+  };
+
   var name = document.getElementById('name_check').value;
   var canvas = document.getElementById('mycanvas');
   var ctx = canvas.getContext('2d');
 
   ctx.lineWidth = 2;
-  ctx.font = "50px Century"
+  ctx.font = "30px Century"
+
+  var n_x = 10;
+  var n_y = canvas.height - name.length * 30;
 
   if(ischecked) {
     ctx.fillStyle = "#000";
-    ctx.fillText(name, 15, 65);
+    // ctx.fillText(name, 15, 65);
+    fillTategaki(ctx, name, n_x, n_y);
   }
   else {
     ctx.fillStyle = paper_color;
-    ctx.fillText(name, 15, 65);
+    // ctx.fillText(name, 15, 65);
+    fillTategaki(ctx, name, n_x, n_y);
     ctx.strokeStyle = paper_color;
-    ctx.strokeText(name, 15, 65);
+    strokeTategaki(ctx, name, n_x, n_y);
     ctx.fillStyle = BLACK;
     ctx.strokeStyle = BLACK;
   }

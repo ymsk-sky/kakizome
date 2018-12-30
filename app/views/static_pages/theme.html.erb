@@ -13,10 +13,10 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_tag(writing_path, method: "GET", id: "check_form") do %>
       <%= label_tag("お題") %>
-      <%= text_field_tag(:user_theme, "", required: true) %>
+      <%= text_field_tag(:user_theme, "", required: true, maxlength: 20) %>
 
       <%= label_tag("お名前") %>
-      <%= text_field_tag(:user_name, "", required: true) %>
+      <%= text_field_tag(:user_name, "", required: true, maxlength: 12) %>
 
       <%= submit_tag "筆をとる", class: "btn btn-primary" %>
     <% end %>

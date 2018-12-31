@@ -158,6 +158,34 @@ input {
   float: right;
 }
 
+/* pictures index */
+
+.products {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+.box {
+  zoom: 1;
+}
+.box:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.inner {
+	float: left;
+}
+.inner p {
+  float: right;
+}
+
 /* miscellaneous */
 
 .debug_dump {
